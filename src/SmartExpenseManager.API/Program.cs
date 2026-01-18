@@ -1,3 +1,6 @@
+using SmartExpenseManager.Infrastructure;
+using SmartExpenseManager.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Controllers (API layer)
@@ -7,9 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Future: Application & Infrastructure DI
-// builder.Services.AddApplication();
-// builder.Services.AddInfrastructure(builder.Configuration);
+// Application & Infrastructure DI
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
